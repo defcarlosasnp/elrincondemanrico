@@ -284,3 +284,71 @@ footer {
     background: #b8972f;
     transform: translateY(-2px);
 }
+@media (max-width: 768px) {
+    /* Ajuste del menú */
+    nav ul {
+        gap: 15px;
+        flex-wrap: wrap;
+        padding: 10px;
+    }
+
+    nav ul li a {
+        font-size: 0.75rem;
+    }
+
+    /* Ajuste del Hero (Título principal) */
+    .hero-content h1 {
+        font-size: 2.8rem;
+        padding: 0 15px;
+    }
+
+    .hero-content p {
+        font-size: 1.1rem;
+    }
+
+    /* Ajuste de los títulos de secciones */
+    h2 {
+        font-size: 2.2rem !important;
+    }
+
+    /* Ajuste de las tarjetas de servicios */
+    .servicios-grid {
+        grid-template-columns: 1fr; /* Una tarjeta por fila en celular */
+        padding: 0 30px;
+    }
+
+    .servicio-card {
+        padding: 30px 20px;
+    }
+
+    /* Ajuste de la Galería */
+    .galeria-item {
+        height: 300px;
+    }
+
+    /* Ajuste del Formulario de Contacto */
+    .contacto-container {
+        padding: 30px 20px;
+        margin: 0 15px;
+    }
+
+    #contacto button {
+        padding: 15px;
+        font-size: 1rem;
+    }
+
+    /* Ajuste del botón flotante de WhatsApp */
+    .wsp-float {
+        width: 60px;
+        height: 60px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 30px;
+    }
+
+    /* Ajuste del Mapa */
+    .map-container {
+        height: 300px;
+        margin: 30px 15px;
+    }
+}
