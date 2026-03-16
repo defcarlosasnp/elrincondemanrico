@@ -232,3 +232,55 @@ footer {
 .sl-wrapper .sl-navigation button {
     color: #ffffff !important;
 }
+#contacto {
+    padding: 100px 20px;
+    background: linear-gradient(135deg, #1e3a2b 0%, #345e45 100%);
+    color: white;
+    text-align: center;
+}
+
+.contacto-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    padding: 50px;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+#contacto input, #contacto textarea {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    border: none;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    padding: 15px;
+    color: white;
+    margin-bottom: 25px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+#contacto input::placeholder, #contacto textarea::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+#contacto button {
+    width: 100%;
+    background: #d4af37;
+    color: white;
+    padding: 18px;
+    border: none;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+#contacto button:hover {
+    background: #b8972f;
+    transform: translateY(-2px);
+}
