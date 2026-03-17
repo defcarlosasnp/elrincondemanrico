@@ -90,7 +90,6 @@ h2 {
 
 #servicios {
     padding: 100px 20px;
-    background: var(--bg-light);
 }
 
 .servicios-grid {
@@ -127,13 +126,9 @@ h2 {
 
 .servicio-card:hover .icon-box {
     color: var(--white);
-    transform: rotateY(360deg);
 }
 
-#galeria { 
-    padding: 100px 0; 
-    background: #fff; 
-}
+#galeria { padding: 100px 0; background: #fff; }
 
 .galeria-item {
     height: 450px;
@@ -143,15 +138,11 @@ h2 {
 }
 
 .galeria-item img {
-    width: 100%; 
-    height: 100%; 
-    object-fit: cover;
+    width: 100%; height: 100%; object-fit: cover;
     transition: 1s cubic-bezier(0.2, 1, 0.3, 1);
 }
 
-.galeria-item:hover img { 
-    transform: scale(1.1); 
-}
+.galeria-item:hover img { transform: scale(1.1); }
 
 .map-container {
     max-width: 1000px;
@@ -162,11 +153,7 @@ h2 {
     box-shadow: 0 20px 50px rgba(0,0,0,0.1);
 }
 
-.map-container iframe { 
-    width: 100%; 
-    height: 100%; 
-    border: 0; 
-}
+.map-container iframe { width: 100%; height: 100%; border: 0; }
 
 #contacto {
     padding: 100px 20px;
@@ -196,11 +183,6 @@ h2 {
     border-radius: 8px;
     box-sizing: border-box;
     font-family: inherit;
-    font-size: 1rem;
-}
-
-#contacto input::placeholder, #contacto textarea::placeholder {
-    color: rgba(255, 255, 255, 0.6);
 }
 
 #contacto button {
@@ -211,23 +193,14 @@ h2 {
     border: none;
     border-radius: 12px;
     font-weight: 700;
-    font-size: 1.1rem;
     cursor: pointer;
     transition: 0.3s;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
-
-#contacto button:hover {
-    background: var(--gold-dark);
-    transform: translateY(-2px);
 }
 
 .wsp-float {
     position: fixed;
-    bottom: 40px;
-    right: 40px;
-    width: 70px;
-    height: 70px;
+    bottom: 40px; right: 40px;
+    width: 70px; height: 70px;
     background: #25d366;
     color: white;
     border-radius: 50%;
@@ -240,94 +213,42 @@ h2 {
     animation: bounce 2s infinite;
 }
 
-@keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-}
+@keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
 
-footer {
-    background: #12231a;
-    color: rgba(255,255,255,0.7);
-    text-align: center;
-    padding: 4rem;
-}
+footer { background: #12231a; color: rgba(255,255,255,0.7); text-align: center; padding: 4rem; }
 
-/* Lightbox Styles */
+/* Lightbox Corregido */
+.sl-wrapper { z-index: 9999 !important; }
+.sl-overlay { background: rgba(0, 0, 0, 0.95) !important; }
 .sl-wrapper .sl-close {
     display: block !important;
-    font-family: Arial, sans-serif !important;
-    font-size: 40px !important;
+    font-family: 'Arial', sans-serif !important;
+    font-size: 50px !important;
     color: #ffffff !important;
-    right: 20px !important;
-    top: 20px !important;
-    z-index: 10000 !important;
-    text-decoration: none !important;
+    right: 25px !important;
+    top: 25px !important;
+    z-index: 10005 !important;
 }
+.sl-wrapper .sl-navigation button { color: #ffffff !important; z-index: 10005 !important; }
 
-.sl-overlay {
-    background: rgba(0, 0, 0, 0.9) !important;
-}
-
-.sl-wrapper .sl-navigation button {
-    color: #ffffff !important;
-}
-
-/* RESPONSIVE DESIGN */
+/* RESPONSIVE */
 @media (max-width: 768px) {
-    header {
-        padding: 10px 0;
-    }
-
+    header { padding: 10px 0; }
     nav ul {
-        display: grid; /* Cambiamos a rejilla para control total */
-        grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales */
-        gap: 10px;
-        padding: 0 15px;
-        justify-items: center;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+        padding: 0 10px;
     }
-
-    nav ul li a {
-        font-size: 0.65rem;
-        letter-spacing: 0px;
-        white-space: nowrap; /* Evita que una palabra se parta en dos */
-    }
-
-    /* El botón de contacto lo mandamos abajo solo si quieres, 
-       o dejamos que el grid acomode todo */
-    
+    nav ul li a { font-size: 0.6rem; }
     #hero {
         background-attachment: scroll !important;
         background-position: center center !important;
-        height: 70vh; 
+        height: 70vh;
     }
-
-    .hero-content h1 {
-        font-size: 2.2rem !important;
-        padding: 0 10px;
-    }
-
-    h2 {
-        font-size: 2rem !important;
-    }
-
-    .servicios-grid {
-        grid-template-columns: 1fr;
-        padding: 0 20px;
-    }
-
-    .galeria-item {
-        height: 250px;
-    }
-
-    .contacto-container {
-        padding: 30px 15px;
-    }
-
-    .wsp-float {
-        width: 55px;
-        height: 55px;
-        bottom: 15px;
-        right: 15px;
-        font-size: 28px;
-    }
+    .hero-content h1 { font-size: 2.2rem !important; }
+    h2 { font-size: 1.8rem !important; }
+    .servicios-grid { grid-template-columns: 1fr; }
+    .galeria-item { height: 280px; }
+    .wsp-float { width: 60px; height: 60px; bottom: 20px; right: 20px; font-size: 30px; }
 }
