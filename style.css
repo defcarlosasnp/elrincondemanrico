@@ -15,6 +15,7 @@ body {
     background-color: var(--bg-light);
     color: var(--text-dark);
     margin: 0;
+    padding: 0;
     overflow-x: hidden;
 }
 
@@ -112,7 +113,7 @@ h2 {
     padding: 100px 20px;
 }
 
-/* --- GRIDS Y CONTENEDORES --- */
+/* --- GRIDS Y TARJETAS --- */
 .servicios-grid, .paquetes-container {
     display: flex;
     justify-content: center;
@@ -122,7 +123,6 @@ h2 {
     margin: 60px auto 0;
 }
 
-/* --- TARJETAS (Servicios y Paquetes) --- */
 .servicio-card, .paquete-card {
     background: var(--white);
     padding: 45px 30px;
@@ -255,6 +255,7 @@ h2 {
     background: var(--grad-nature);
     color: white;
     text-align: center;
+    padding: 100px 20px;
 }
 
 .contacto-container {
@@ -265,6 +266,25 @@ h2 {
     padding: 50px;
     border-radius: 30px;
     border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.info-contacto-rapida {
+    margin-bottom: 30px;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    padding-bottom: 20px;
+}
+
+.info-contacto-rapida p {
+    margin: 10px 0;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.info-contacto-rapida i {
+    color: var(--gold);
 }
 
 #contacto input, #contacto textarea {
@@ -311,46 +331,11 @@ h2 {
 
 @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
 
-footer { background: #12231a; color: rgba(255,255,255,0.7); text-align: center; padding: 4rem; }
-
-/* --- LIGHTBOX --- */
-.sl-wrapper { z-index: 9999 !important; }
-.sl-overlay { background: rgba(0, 0, 0, 0.95) !important; }
-.sl-wrapper .sl-close {
-    display: block !important;
-    font-family: 'Arial', sans-serif !important;
-    font-size: 50px !important;
-    color: #ffffff !important;
-    right: 25px !important;
-    top: 25px !important;
-    z-index: 10005 !important;
-}
-.sl-wrapper .sl-navigation button { color: #ffffff !important; z-index: 10005 !important; }
-
-/* --- AOS CONFIG --- */
-[data-aos] {
-    pointer-events: none;
-}
-[data-aos].aos-animate {
-    pointer-events: auto;
-}
-.info-contacto-rapida {
-    margin-bottom: 30px;
-    border-bottom: 1px solid rgba(255,255,255,0.2);
-    padding-bottom: 20px;
-}
-
-.info-contacto-rapida p {
-    margin: 10px 0;
-    font-size: 0.95rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-}
-
-.info-contacto-rapida i {
-    color: var(--gold);
+footer { 
+    background: #12231a; 
+    color: white; 
+    text-align: center; 
+    padding: 4rem; 
 }
 
 .footer-content h3 {
@@ -383,6 +368,29 @@ footer { background: #12231a; color: rgba(255,255,255,0.7); text-align: center; 
     opacity: 0.6;
     margin-top: 20px;
 }
+
+/* --- LIGHTBOX --- */
+.sl-wrapper { z-index: 9999 !important; }
+.sl-overlay { background: rgba(0, 0, 0, 0.95) !important; }
+.sl-wrapper .sl-close {
+    display: block !important;
+    font-family: 'Arial', sans-serif !important;
+    font-size: 50px !important;
+    color: #ffffff !important;
+    right: 25px !important;
+    top: 25px !important;
+    z-index: 10005 !important;
+}
+.sl-wrapper .sl-navigation button { color: #ffffff !important; z-index: 10005 !important; }
+
+/* --- AOS CONFIG --- */
+[data-aos] {
+    pointer-events: none;
+}
+[data-aos].aos-animate {
+    pointer-events: auto;
+}
+
 /* --- RESPONSIVE --- */
 @media (max-width: 768px) {
     header { padding: 10px 0; }
