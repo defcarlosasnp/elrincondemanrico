@@ -34,34 +34,48 @@ body {
 }
 
 /* Flor superior izquierda */
+/* --- DECORACIONES BOTÁNICAS (Versión Pro y Alineada) --- */
+.decorated-section {
+    position: relative;
+    overflow: hidden; /* Evita que las hojas se salgan de la sección */
+}
+
+/* Hoja superior izquierda */
 .decorated-section::before {
-    content: '';
+    content: '\f4d8'; /* Icono de hoja de Font Awesome */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
     position: absolute;
     top: -20px;
-    left: -50px;
-    width: 250px;
-    height: 250px;
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="%23d4af37" opacity="0.1" d="M10,90 Q30,40 80,20 Q50,50 10,90 M30,80 Q50,30 90,10 Q60,40 30,80"/></svg>');
-    background-repeat: no-repeat;
-    background-size: contain;
+    left: -30px;
+    font-size: 20rem; /* Muy grande para que solo se vea una parte */
+    color: var(--gold);
+    opacity: 0.07; /* Muy sutil para no molestar la lectura */
+    transform: rotate(-15deg);
     pointer-events: none;
     z-index: 0;
 }
 
-/* Flor inferior derecha */
+/* Hoja inferior derecha */
 .decorated-section::after {
-    content: '';
+    content: '\f4d8';
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
     position: absolute;
-    bottom: -20px;
-    right: -50px;
-    width: 250px;
-    height: 250px;
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="%23d4af37" opacity="0.1" d="M90,10 Q70,60 20,80 Q50,50 90,10 M70,20 Q50,70 10,90 Q40,60 70,20"/></svg>');
-    background-repeat: no-repeat;
-    background-size: contain;
+    bottom: -50px;
+    right: -40px;
+    font-size: 25rem;
+    color: var(--gold);
+    opacity: 0.07;
+    transform: rotate(160deg);
     pointer-events: none;
     z-index: 0;
-    transform: rotate(180deg);
+}
+
+/* Ajuste para que el contenido siempre esté arriba de las hojas */
+.decorated-section .container {
+    position: relative;
+    z-index: 1;
 }
 
 /* --- HEADER INTELIGENTE --- */
