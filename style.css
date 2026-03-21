@@ -9,58 +9,32 @@
     --grad-nature: linear-gradient(135deg, #1e3a2b 0%, #345e45 100%);
 }
 
-/* --- CONFIGURACIÓN BASE --- */
+/* --- BASE --- */
 body {
     font-family: 'Poppins', sans-serif;
     background-color: var(--bg-light);
     color: var(--text-dark);
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
+    margin: 0; padding: 0; overflow-x: hidden;
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1100px; /* Reducido para que no se vea tan estirado en PC */
     margin: 0 auto;
     padding: 0 20px;
     position: relative;
     z-index: 5;
-    box-sizing: border-box;
 }
 
-/* --- DECORACIONES BOTÁNICAS --- */
-.decorated-section {
-    position: relative;
-    overflow: hidden;
+/* --- DECORACIONES --- */
+.decorated-section { position: relative; overflow: hidden; }
+.decorated-section::before, .decorated-section::after {
+    content: '\f4d8'; font-family: "Font Awesome 6 Free"; font-weight: 900;
+    position: absolute; color: var(--gold); opacity: 0.05; pointer-events: none; z-index: 1;
 }
+.decorated-section::before { top: -40px; left: -40px; font-size: 15rem; transform: rotate(-15deg); }
+.decorated-section::after { bottom: -60px; right: -40px; font-size: 18rem; transform: rotate(160deg); }
 
-.decorated-section::before,
-.decorated-section::after {
-    content: '\f4d8';
-    font-family: "Font Awesome 6 Free";
-    font-weight: 900;
-    position: absolute;
-    color: var(--gold);
-    opacity: 0.06;
-    pointer-events: none;
-    z-index: 1;
-}
-
-.decorated-section::before {
-    top: -50px;
-    left: -50px;
-    font-size: 18rem;
-    transform: rotate(-15deg);
-}
-
-.decorated-section::after {
-    bottom: -80px;
-    right: -50px;
-    font-size: 22rem;
-    transform: rotate(160deg);
-}
-
-/* --- HEADER INTELIGENTE --- */
+/* --- HEADER --- */
 header {
     background: transparent;
     padding: 1.5rem 0;
@@ -73,17 +47,16 @@ header {
 header.scrolled {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
-    padding: 1rem 0;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    padding: 0.8rem 0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
 
 nav ul {
     display: flex;
     justify-content: center;
-    gap: 35px;
+    gap: 30px;
     list-style: none;
-    margin: 0;
-    padding: 0;
+    margin: 0; padding: 0;
 }
 
 nav ul li a {
@@ -91,234 +64,104 @@ nav ul li a {
     color: white;
     font-weight: 600;
     text-transform: uppercase;
-    font-size: 0.85rem;
-    letter-spacing: 1px;
+    font-size: 0.8rem;
     transition: 0.3s;
 }
 
-header.scrolled nav ul li a {
-    color: var(--forest);
-}
+header.scrolled nav ul li a { color: var(--forest); }
+nav ul li a:hover { color: var(--gold) !important; }
 
-nav ul li a:hover {
-    color: var(--gold) !important;
-}
-
-/* --- SECCIÓN HERO --- */
+/* --- HERO --- */
 #hero {
     height: 100vh;
     background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.3)), url('fondo.jpg') no-repeat center center/cover;
-    background-attachment: fixed;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: white;
+    display: flex; justify-content: center; align-items: center; text-align: center; color: white;
 }
+.hero-content h1 { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 8vw, 5rem); margin: 0; }
 
-.hero-content h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2.5rem, 8vw, 5.5rem);
-    margin: 0;
-}
-
-/* --- BOTONES PREMIUM --- */
 .btn-primary {
-    display: inline-block;
-    margin-top: 2rem;
-    padding: 1.2rem 2.8rem;
-    background-color: var(--gold);
-    color: white !important;
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: 700;
-    text-transform: uppercase;
-    font-size: 0.9rem;
-    letter-spacing: 2px;
-    transition: 0.4s ease;
-    border: none;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-    cursor: pointer;
-    max-width: 100%;
-}
-
-.btn-primary:hover {
-    background-color: var(--gold-dark);
-    transform: translateY(-3px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+    display: inline-block; margin-top: 2rem; padding: 1rem 2.5rem; background-color: var(--gold);
+    color: white !important; text-decoration: none; border-radius: 50px; font-weight: 700;
+    text-transform: uppercase; font-size: 0.85rem; transition: 0.3s; border: none;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2); cursor: pointer;
 }
 
 /* --- SECCIONES --- */
-h2 {
-    font-family: 'Playfair Display', serif;
-    color: var(--forest);
-    text-align: center;
-    margin-bottom: 1.5rem;
-}
-
-#servicios, #paquetes, #galeria, #ubicacion, #contacto {
-    padding: 100px 0;
-}
+h2 { font-family: 'Playfair Display', serif; font-size: 2.8rem; color: var(--forest); text-align: center; margin-bottom: 2rem; }
+#servicios, #paquetes, #galeria, #ubicacion, #contacto { padding: 80px 0; }
 
 /* --- TARJETAS --- */
 .servicios-grid, .paquetes-container {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
+    display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; margin-top: 40px;
 }
 
 .servicio-card, .paquete-card {
     background: var(--white);
-    padding: 45px 30px;
-    border-radius: 30px;
-    transition: 0.4s ease;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.03);
+    padding: 35px 25px;
+    border-radius: 25px;
+    transition: 0.4s;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
     text-align: center;
-    width: 320px;
+    width: 300px; /* Ancho fijo para PC para que no se estiren */
     box-sizing: border-box;
 }
 
-.servicio-card:hover {
-    background: var(--grad-nature);
-    color: white;
-    transform: translateY(-10px);
-}
-
-.icon-box { font-size: 3.5rem; color: var(--gold); margin-bottom: 1.5rem; }
-.servicio-card:hover .icon-box { color: var(--white); }
+.servicio-card:hover { background: var(--grad-nature); color: white; transform: translateY(-10px); }
+.icon-box { font-size: 3rem; color: var(--gold); margin-bottom: 1rem; }
 
 /* --- PAQUETES --- */
 .paquete-card.destacado { border: 2px solid var(--gold); transform: scale(1.05); }
-.paquete-tag { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--gold); color: white; padding: 6px 20px; border-radius: 20px; font-size: 0.75rem; font-weight: bold; }
-.precio { font-size: 2rem; font-weight: 700; margin-bottom: 25px; color: var(--forest); }
-.paquete-card ul { list-style: none; padding: 0; text-align: left; }
-.fa-check { color: #28a745; margin-right: 12px; }
-
-.btn-paquete {
-    background: var(--forest);
-    color: white;
-    padding: 15px;
-    border: none;
-    border-radius: 12px;
-    font-weight: 700;
-    cursor: pointer;
-    width: 100%;
-    margin-top: 20px;
+.paquete-tag {
+    position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+    background: var(--gold); color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.7rem; font-weight: bold;
 }
+.precio { font-size: 1.8rem; font-weight: 700; margin-bottom: 20px; color: var(--forest); }
+.paquete-card ul { list-style: none; padding: 0; margin-bottom: 25px; text-align: left; font-size: 0.9rem; }
+.fa-check { color: #28a745; margin-right: 10px; }
 
-/* --- GALERÍA --- */
-#image-carousel { padding: 20px 0; width: 100%; }
-.galeria-item { height: 450px; border-radius: 20px; overflow: hidden; }
-.galeria-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+/* --- GALERIA Y MAPA --- */
+.galeria-item { height: 350px; border-radius: 20px; overflow: hidden; margin: 10px; }
+.galeria-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+.map-container { max-width: 900px; height: 400px; margin: 0 auto; border-radius: 25px; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.1); border: 2px solid white; }
 
-/* --- MAPA --- */
-.map-container {
-    max-width: 1000px;
-    height: 450px;
-    margin: 0 auto;
-    border-radius: 30px;
-    overflow: hidden;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.1);
-}
-
-/* --- CONTACTO CORREGIDO --- */
-#contacto { background: var(--grad-nature); color: white; padding: 80px 20px; }
+/* --- CONTACTO --- */
+#contacto { background: var(--grad-nature); color: white; }
 .contacto-container {
-    max-width: 650px;
-    margin: 0 auto;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(15px);
-    padding: 50px 30px;
-    border-radius: 40px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-sizing: border-box;
-    text-align: center;
+    max-width: 600px; margin: 0 auto; background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px); padding: 45px; border-radius: 35px; border: 1px solid rgba(255, 255, 255, 0.1);
+    box-sizing: border-box; text-align: center;
 }
-
-.instagram-link {
-    color: white !important;
-    text-decoration: none !important;
-    font-weight: 500;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    transition: 0.3s;
+#contacto input, #contacto textarea {
+    width: 100%; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 15px; color: white; margin-bottom: 15px; border-radius: 10px; box-sizing: border-box; font-family: inherit;
 }
-
+.instagram-link { color: white !important; text-decoration: none; transition: 0.3s; }
 .instagram-link:hover { color: var(--gold) !important; }
 
-#contacto input, #contacto textarea {
-    width: 100%;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    padding: 18px;
-    color: white;
-    margin-bottom: 20px;
-    border-radius: 12px;
-    box-sizing: border-box;
-}
+/* --- WSP Y FOOTER --- */
+.wsp-float { position: fixed; bottom: 25px; right: 25px; width: 55px; height: 55px; background: #25d366; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; z-index: 3000; box-shadow: 0 8px 15px rgba(0,0,0,0.2); }
+footer { background: #0e1a14; color: white; text-align: center; padding: 3rem 0; font-size: 0.8rem; opacity: 0.7; }
 
-/* --- WSP FLOAT --- */
-.wsp-float {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 60px;
-    height: 60px;
-    background: #25d366;
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 30px;
-    z-index: 3000;
-}
-
-/* --- RESPONSIVE FINAL --- */
-/* --- RESPONSIVE FINAL CORREGIDO --- */
-/* --- RESPONSIVE FINAL (CON SALTO DE LÍNEA EN EL MENÚ) --- */
+/* --- MÓVIL FINAL --- */
 @media (max-width: 768px) {
     header { 
         background: white !important; 
-        padding: 15px 0 !important;
-        position: relative !important; /* Permite que el header crezca hacia abajo sin tapar nada */
-        width: 100% !important;
-        left: 0;
-        right: 0;
+        padding: 10px 0 !important; 
+        position: relative !important; 
     }
     
     nav ul { 
-        display: flex !important;
-        flex-wrap: wrap !important; /* LA CLAVE: Hace que los títulos bajen si no caben */
-        justify-content: center !important; /* Centra los títulos que bajaron */
-        gap: 10px 15px !important; /* Espacio vertical y horizontal entre botones */
-        padding: 5px 15px !important; 
-        width: 100% !important;
-        overflow-x: hidden !important; /* Quita el deslizamiento lateral */
-    }
-
-    nav ul li { 
-        flex: none !important; /* Deja que el texto mande el ancho */
-        list-style: none;
-    }
-
-    nav ul li a { 
-        color: var(--forest) !important; 
-        font-size: 0.75rem !important; 
-        font-weight: 700;
-        white-space: nowrap; /* Evita que una palabra sola se parta */
-        text-transform: uppercase;
+        flex-wrap: wrap !important; 
+        justify-content: center !important; 
+        gap: 10px 15px !important; 
+        padding: 5px !important;
     }
     
-    /* Ajustes generales para el resto de la web en móvil */
-    #hero { height: 70vh; }
-    .hero-content h1 { font-size: 2.2rem !important; }
-    .servicio-card, .paquete-card { width: 100% !important; margin-bottom: 20px; }
-    .contacto-container { padding: 40px 20px; width: 100% !important; }
+    nav ul li a { color: var(--forest) !important; font-size: 0.7rem !important; }
+    
+    .servicio-card, .paquete-card { width: 100% !important; }
+    .hero-content h1 { font-size: 2.5rem !important; }
+    #servicios, #paquetes, #galeria, #ubicacion, #contacto { padding: 40px 0; }
     .decorated-section::before, .decorated-section::after { display: none; }
-    .galeria-item { height: 250px; }
-    .map-container { height: 350px; }
-    #servicios, #paquetes, #galeria, #ubicacion, #contacto { padding: 50px 0; }
+    .map-container { height: 300px; }
 }
