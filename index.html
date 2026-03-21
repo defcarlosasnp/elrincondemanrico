@@ -28,7 +28,9 @@
         </nav>
     </header>
 
-    <a href="https://wa.me/56931062226" class="wsp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://wa.me/56931062226" class="wsp-float" target="_blank" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <main>
         <section id="hero">
@@ -203,10 +205,26 @@
             else header.classList.remove('scrolled');
         });
 
+        // FUNCIÓN CORREGIDA PARA LOS BOTONES DE PAQUETES
+        function selectPackage(packageName) {
+            const contactSection = document.getElementById('contacto');
+            const messageArea = document.getElementById('mensaje');
+            const nameInput = document.getElementById('nombre');
+            
+            // Escribe el mensaje automático
+            messageArea.value = `Hola, me interesa el paquete: ${packageName}. `;
+            
+            // Mueve la pantalla al formulario suavemente
+            contactSection.scrollIntoView({ behavior: 'smooth' });
+            
+            // Pone el foco en el nombre para que el cliente empiece a escribir
+            setTimeout(() => nameInput.focus(), 800);
+        }
+
         function sendToWhatsApp() {
             const nom = document.getElementById('nombre').value;
             const msg = document.getElementById('mensaje').value;
-            if(!nom || !msg) return alert("Completa los campos");
+            if(!nom || !msg) return alert("Por favor, completa los campos");
             window.open(`https://wa.me/56931062226?text=Hola, soy ${nom}. ${msg}`, '_blank');
         }
     </script>
