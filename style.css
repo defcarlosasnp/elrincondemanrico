@@ -13,15 +13,6 @@
 body { font-family: 'Poppins', sans-serif; background-color: var(--bg-light); color: var(--text-dark); margin: 0; padding: 0; overflow-x: hidden; }
 .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 5; box-sizing: border-box; }
 
-/* --- DECORACIONES --- */
-.decorated-section { position: relative; overflow: hidden; }
-.decorated-section::before, .decorated-section::after {
-    content: '\f4d8'; font-family: "Font Awesome 6 Free"; font-weight: 900;
-    position: absolute; color: var(--gold); opacity: 0.05; pointer-events: none; z-index: 1;
-}
-.decorated-section::before { top: -40px; left: -40px; font-size: 15rem; transform: rotate(-15deg); }
-.decorated-section::after { bottom: -60px; right: -40px; font-size: 18rem; transform: rotate(160deg); }
-
 /* --- HEADER --- */
 header { background: transparent; padding: 1.5rem 0; position: fixed; width: 100%; z-index: 2000; transition: 0.4s ease; top: 0; left: 0; }
 header.scrolled { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); padding: 0.8rem 0; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
@@ -35,27 +26,63 @@ nav ul li a:hover { color: var(--gold) !important; }
 .hero-content h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 8vw, 5rem); margin: 0; }
 .btn-primary { display: inline-block; margin-top: 2rem; padding: 1rem 2.5rem; background-color: var(--gold); color: white !important; text-decoration: none; border-radius: 50px; font-weight: 700; text-transform: uppercase; font-size: 0.85rem; transition: 0.3s; border: none; box-shadow: 0 5px 15px rgba(0,0,0,0.2); cursor: pointer; }
 
-/* --- TARJETAS --- */
+/* --- TARJETAS (Servicios y Paquetes) --- */
 .servicios-grid, .paquetes-container { display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; margin-top: 40px; }
-.servicio-card, .paquete-card { background: var(--white); padding: 40px 25px; border-radius: 25px; transition: 0.4s; box-shadow: 0 10px 30px rgba(0,0,0,0.03); text-align: center; width: 300px; box-sizing: border-box; display: flex; flex-direction: column; margin-top: 20px; }
-.icon-box { font-size: 3rem; color: var(--gold); margin-bottom: 1rem; }
+.servicio-card, .paquete-card { 
+    background: var(--white); 
+    padding: 40px 25px; 
+    border-radius: 25px; 
+    transition: 0.4s; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03); 
+    text-align: center; 
+    width: 320px; 
+    box-sizing: border-box; 
+    display: flex; 
+    flex-direction: column; 
+    margin-top: 20px; 
+}
+
+/* Iconos Dorados en Servicios */
+.icon-box { font-size: 3.5rem; color: var(--gold); margin-bottom: 1.5rem; }
+.servicio-card i { color: var(--gold); }
+.servicio-card:hover { background: var(--grad-nature); color: white; transform: translateY(-10px); }
+.servicio-card:hover i, .servicio-card:hover .icon-box { color: white; }
+
+/* --- PAQUETES (Listas Limpias) --- */
+.paquete-card { position: relative; }
+.paquete-card.destacado { border: 2px solid var(--gold); transform: scale(1.05); z-index: 10; }
+.paquete-tag { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--gold); color: white; padding: 6px 20px; border-radius: 20px; font-size: 0.75rem; font-weight: bold; box-shadow: 0 4px 10px rgba(0,0,0,0.1); white-space: nowrap; z-index: 11; }
+
+.precio { font-size: 2rem; font-weight: 700; margin: 20px 0; color: var(--forest); }
+
+/* Arreglo de los puntos negros y checks */
+.paquete-card ul { 
+    list-style: none !important; /* Quita los puntos negros */
+    padding: 0; 
+    margin: 20px 0 30px 0; 
+    text-align: left; 
+    flex-grow: 1; 
+}
+.paquete-card ul li { 
+    margin-bottom: 12px; 
+    display: flex; 
+    align-items: center; 
+    gap: 10px;
+    font-size: 0.95rem;
+}
+.fa-check { color: #28a745; font-size: 1rem; }
+
+.btn-paquete { background: var(--forest); color: white; padding: 12px; border: none; border-radius: 10px; font-weight: 700; cursor: pointer; width: 100%; transition: 0.3s; }
+.btn-paquete:hover { background: var(--gold); }
 
 /* --- GALERÍA --- */
 #image-carousel { width: 100%; visibility: visible !important; }
 .galeria-item { height: 400px; border-radius: 20px; overflow: hidden; position: relative; }
 .galeria-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-/* --- CONTACTO FIX (Luz e Iconos) --- */
+/* --- CONTACTO (Legibilidad Máxima) --- */
 #contacto { background: var(--grad-nature); color: white; padding: 80px 0; }
 .contacto-container { max-width: 600px; margin: 0 auto; background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(15px); padding: 45px; border-radius: 35px; border: 1px solid rgba(255, 255, 255, 0.1); box-sizing: border-box; text-align: center; }
-
-/* Forzar que los iconos usen la fuente correcta */
-#contacto i {
-    font-family: "Font Awesome 6 Free" !important;
-    font-weight: 900;
-    color: #ffffff !important;
-    margin-right: 10px;
-}
 
 .info-contacto-rapida p { 
     color: #ffffff !important; 
@@ -64,9 +91,10 @@ nav ul li a:hover { color: var(--gold) !important; }
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 10px;
 }
+#contacto i { color: var(--gold) !important; font-size: 1.2rem; }
 
-/* Inputs: Fondo blanco sólido y texto oscuro para lectura perfecta */
 #contacto input, #contacto textarea { 
     width: 100%; 
     background: #ffffff !important; 
@@ -76,18 +104,14 @@ nav ul li a:hover { color: var(--gold) !important; }
     margin-bottom: 15px; 
     border-radius: 12px; 
     box-sizing: border-box; 
-    font-family: 'Poppins', sans-serif;
+    font-family: inherit;
     font-size: 1rem;
 }
-
 #contacto input::placeholder, #contacto textarea::placeholder { color: #888888 !important; }
 
-.instagram-link, .instagram-link:visited { color: white !important; text-decoration: none !important; }
-.instagram-link:hover { color: var(--gold) !important; }
-
-/* --- WSP --- */
+/* --- WSP Y FOOTER --- */
 .wsp-float { position: fixed; bottom: 25px; right: 25px; width: 55px; height: 55px; background: #25d366; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; z-index: 3000; box-shadow: 0 8px 15px rgba(0,0,0,0.2); }
-footer { background: #0e1a14; color: white; text-align: center; padding: 3rem 0; opacity: 0.7; }
+footer { background: #0e1a14; color: white; text-align: center; padding: 4rem 0; opacity: 0.7; }
 
 /* --- MÓVIL --- */
 @media (max-width: 768px) {
