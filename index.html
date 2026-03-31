@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Peumayén Spa - Linderos</title>
-    <link rel="icon" href="https://fav.farm/🌿">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
@@ -19,6 +18,7 @@
         <nav>
             <ul>
                 <li><a href="#hero">Inicio</a></li>
+                <li><a href="#promo">Promoción</a></li>
                 <li><a href="#servicios">Servicios</a></li>
                 <li><a href="#paquetes">Paquetes</a></li>
                 <li><a href="#galeria">Galería</a></li>
@@ -28,7 +28,7 @@
         </nav>
     </header>
 
-    <a href="https://wa.me/56931062226" class="wsp-float" target="_blank" aria-label="Chat on WhatsApp">
+    <a href="https://wa.me/56931062226" class="wsp-float" target="_blank" aria-label="WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -36,8 +36,40 @@
         <section id="hero">
             <div class="hero-content" data-aos="zoom-out" data-aos-duration="2000">
                 <h1>Peumayén Spa</h1>
-                <p>Tu refugio de tranquilidad en Linderos</p>
-                <a href="#contacto" class="btn-primary">Reservar Ahora</a>
+                <p>Tu descanso en Linderos</p>
+                <a href="#promo" class="btn-primary">Ver Oferta de Lanzamiento</a>
+            </div>
+        </section>
+
+        <section id="promo" class="decorated-section">
+            <div class="container" data-aos="zoom-in">
+                <div class="promo-card">
+                    <div class="promo-badge">OFERTA DE LANZAMIENTO</div>
+                    <h2>Inauguración Exclusiva</h2>
+                    <p class="promo-subtitle">Escápate del estrés hoy. No necesitas vacaciones, necesitas 3 horas aquí.</p>
+                    <div class="promo-grid">
+                        <div class="promo-features">
+                            <ul>
+                                <li><i class="fas fa-hot-tub"></i> Tinaja caliente bajo el cielo</li>
+                                <li><i class="fas fa-spa"></i> Sauna para liberar tensión</li>
+                                <li><i class="fas fa-leaf"></i> Naturaleza y privacidad total</li>
+                                <li><i class="fas fa-hands"></i> Masaje relajante opcional</li>
+                            </ul>
+                        </div>
+                        <div class="promo-price-box">
+                            <div class="promo-price">$49.990</div>
+                            <p class="promo-personas">Para 2 personas</p>
+                            <p class="promo-extra">Persona adicional: $20.000</p>
+                            <p class="promo-time">3 HORAS FULL RELAX</p>
+                        </div>
+                    </div>
+                    <div class="promo-details">
+                        <p>Acceso libre a Tinaja y Sauna. Perfecto para parejas y grupos de amigas o amigos. Plan ideal de tarde-noche en una experiencia íntima y exclusiva.</p>
+                        <p class="promo-alert">CUPOS LIMITADOS POR DÍA (No es masivo - atención personalizada)</p>
+                    </div>
+                    <button class="btn-primary promo-btn" onclick="window.open('https://wa.me/56962178945?text=Hola,%20quiero%20reservar%20la%20Oferta%20de%20Lanzamiento%20de%203%20horas%20por%20$49.990', '_blank')">Reserva Ahora al +56 9 6217 8945</button>
+                    <p class="promo-footer">Después de esto, no vas a querer irte.</p>
+                </div>
             </div>
         </section>
 
@@ -223,7 +255,7 @@
             const nom = document.getElementById('nombre').value;
             const msg = document.getElementById('mensaje').value;
             if(!nom || !msg) return alert("Por favor, completa los campos");
-            window.open(`https://wa.me/56931062226?text=Hola, soy ${nom}. ${msg}`, '_blank');
+            window.open(`https://wa.me/56931062226?text=Hola,%20soy%20${nom}.%20${msg}`, '_blank');
         }
     </script>
 </body>
