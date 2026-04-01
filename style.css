@@ -9,8 +9,9 @@
     --grad-nature: linear-gradient(135deg, #1e3a2b 0%, #345e45 100%);
 }
 
-body { font-family: 'Poppins', sans-serif; background-color: var(--bg-light); color: var(--text-dark); margin: 0; padding: 0; overflow-x: hidden; }
-.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 5; box-sizing: border-box; }
+/* --- BASE Y FONDO UNIFORME --- */
+body { font-family: 'Poppins', sans-serif; background-color: var(--white); color: var(--text-dark); margin: 0; padding: 0; overflow-x: hidden; }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 6; box-sizing: border-box; }
 
 .decorated-section { position: relative; overflow: hidden; }
 .decorated-section::before, .decorated-section::after {
@@ -20,6 +21,7 @@ body { font-family: 'Poppins', sans-serif; background-color: var(--bg-light); co
 .decorated-section::before { top: -40px; left: -40px; font-size: 15rem; transform: rotate(-15deg); }
 .decorated-section::after { bottom: -60px; right: -40px; font-size: 18rem; transform: rotate(160deg); }
 
+/* --- HEADER --- */
 header { background: transparent; padding: 1.5rem 0; position: fixed; width: 100%; z-index: 2000; transition: 0.4s ease; top: 0; left: 0; }
 header.scrolled { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); padding: 0.8rem 0; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
 nav ul { display: flex; justify-content: center; gap: 30px; list-style: none; margin: 0; padding: 0; }
@@ -27,13 +29,32 @@ nav ul li a { text-decoration: none; color: white; font-weight: 600; text-transf
 header.scrolled nav ul li a { color: var(--forest); }
 nav ul li a:hover { color: var(--gold) !important; }
 
-#hero { height: 100vh; background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.3)), url('fondo.jpg') no-repeat center center/cover; display: flex; justify-content: center; align-items: center; text-align: center; color: white; }
+/* --- HERO CON EFECTO PROFUNDO --- */
+#hero { 
+    height: 100vh; 
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.3)), url('fondo.jpg') no-repeat center center/cover; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    text-align: center; 
+    color: white;
+    position: relative;
+    z-index: 10;
+    margin-bottom: -15vh; /* Permite que la promo se deslice abajo */
+}
 .hero-content h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 8vw, 5rem); margin: 0; }
 .btn-primary { display: inline-block; margin-top: 2rem; padding: 1rem 2.5rem; background-color: var(--gold); color: white !important; text-decoration: none; border-radius: 50px; font-weight: 700; text-transform: uppercase; font-size: 0.85rem; transition: 0.3s; border: none; box-shadow: 0 5px 15px rgba(0,0,0,0.2); cursor: pointer; }
 
-#promo { padding: 80px 0; background-color: var(--bg-alt); }
+/* --- PROMO CON ÁNGULO DINÁMICO --- */
+#promo { 
+    padding: 100px 0 140px 0; 
+    background-color: var(--bg-alt);
+    position: relative;
+    z-index: 9;
+    clip-path: polygon(0 0, 100% 10%, 100% 100%, 0 90%); /* Entrada y salida angulada */
+}
 .promo-card { background: var(--forest); color: var(--white); border-radius: 30px; padding: 50px; text-align: center; position: relative; box-shadow: 0 20px 40px rgba(0,0,0,0.15); border: 2px solid var(--gold); }
-.promo-badge { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--gold); color: var(--white); padding: 8px 25px; border-radius: 20px; font-weight: 700; font-size: 0.9rem; letter-spacing: 1px; white-space: nowrap; }
+.promo-badge { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--gold); color: var(--white); padding: 8px 25px; border-radius: 20px; font-weight: 700; font-size: 0.9rem; letter-spacing: 1px; white-space: nowrap; z-index: 20; }
 .promo-card h2 { color: var(--gold); margin-bottom: 10px; font-size: 2.5rem; }
 .promo-subtitle { font-size: 1.1rem; font-weight: 300; margin-bottom: 35px; }
 .promo-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; margin-bottom: 30px; text-align: left; }
@@ -49,6 +70,12 @@ nav ul li a:hover { color: var(--gold) !important; }
 .promo-alert { font-weight: 700; color: #ffcccc; margin-top: 10px; font-size: 1.05rem; }
 .promo-footer { margin-top: 25px; font-style: italic; opacity: 0.8; font-size: 0.95rem; }
 .promo-btn { font-size: 1rem; padding: 1.2rem 3rem; }
+
+/* --- SECCIONES BLANCAS UNIFORMES --- */
+#servicios { background-color: var(--white); margin-top: -10vh; padding-top: 60px; z-index: 8; position: relative;}
+#paquetes { background-color: var(--white); }
+#galeria { background-color: var(--white); }
+#ubicacion { background-color: var(--white); padding-bottom: 100px;}
 
 .servicios-grid, .paquetes-container { display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; margin-top: 40px; }
 .servicio-card, .paquete-card { background: var(--white); padding: 40px 25px; border-radius: 25px; transition: 0.4s; box-shadow: 0 10px 30px rgba(0,0,0,0.03); text-align: center; width: 320px; box-sizing: border-box; display: flex; flex-direction: column; margin-top: 20px; }
@@ -79,8 +106,45 @@ nav ul li a:hover { color: var(--gold) !important; }
 .address-text { font-size: 1.05rem; color: var(--forest); font-weight: 500; }
 .map-container { max-width: 1000px; height: 450px; margin: 0 auto; border-radius: 40px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.1); border: 8px solid var(--white); box-sizing: border-box; }
 
-#contacto { background: var(--grad-nature); color: white; padding: 80px 0; }
-.contacto-container { max-width: 600px; margin: 0 auto; background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(15px); padding: 45px; border-radius: 35px; border: 1px solid rgba(255, 255, 255, 0.1); box-sizing: border-box; text-align: center; }
+/* --- REVAMP CONTACTO: CASCADA DINÁMICA (Adiós Gris Feo) --- */
+#contacto { 
+    background: var(--white); /* Sección base blanca */
+    color: white; 
+    padding: 0 0 100px 0; /* Sin padding arriba para clip-path */
+    position: relative;
+    z-index: 7;
+}
+
+/* Máscara angulada con gradiente de transición desde blanco a verde oscuro */
+#contacto::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 15vh; /* Altura de la máscara angulada */
+    background: linear-gradient(180deg, var(--white) 0%, rgba(30, 58, 43, 0.4) 100%); /* Lighter green gradient entry to darker */
+    z-index: 5;
+    clip-path: polygon(0 0, 100% 0, 100% 50%, 0 100%); /* Entrada angulada de cascada */
+    pointer-events: none;
+}
+
+/* Empuja el contenido de contacto hacia abajo, por debajo de la máscara angulada */
+.contacto-container { 
+    max-width: 600px; 
+    margin: 10vh auto 0 auto; /* Empuja hacia abajo y centra */
+    background: rgba(30, 58, 43, 0.95); /* Keep dark glassmorphism but force color consistency with forest */
+    backdrop-filter: blur(15px); 
+    padding: 45px; 
+    border-radius: 35px; 
+    border: 1px solid rgba(255, 255, 255, 0.1); 
+    box-sizing: border-box; 
+    text-align: center; 
+    position: relative;
+    z-index: 6;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+}
+
 .info-contacto-rapida p { color: #ffffff !important; font-weight: 500; margin-bottom: 20px; display: flex; align-items: center; justify-content: center; gap: 10px; }
 #contacto i { color: var(--gold) !important; font-size: 1.2rem; }
 #contacto input, #contacto textarea { width: 100%; background: #ffffff !important; border: none; padding: 18px; color: #222222 !important; margin-bottom: 15px; border-radius: 12px; box-sizing: border-box; font-family: inherit; font-size: 1rem; }
@@ -88,9 +152,19 @@ nav ul li a:hover { color: var(--gold) !important; }
 .instagram-link, .instagram-link:visited { color: white !important; text-decoration: none !important; }
 .instagram-link:hover { color: var(--gold) !important; }
 
+/* --- WSP FLOAT Y FOOTER BLENDEADO --- */
 .wsp-float { position: fixed; bottom: 25px; right: 25px; width: 55px; height: 55px; background: #25d366; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; z-index: 3000; box-shadow: 0 8px 15px rgba(0,0,0,0.2); }
-footer { background: #0e1a14; color: white; text-align: center; padding: 4rem 0; opacity: 0.7; }
+footer { 
+    background-color: #122319; /* Safe dark green */
+    color: white; 
+    text-align: center; 
+    padding: 3rem 0; 
+    opacity: 0.9; 
+    margin-top: 0; /* No heavy gray spacer */
+    box-shadow: 0 -15px 40px rgba(0,0,0,0.1); /* Slight shadow inverse to create depth from Contact section */
+}
 
+/* --- MÓVIL --- */
 @media (max-width: 768px) {
     header { background: white !important; padding: 10px 0 !important; position: relative !important; width: 100% !important; }
     nav ul { flex-wrap: wrap !important; justify-content: center !important; gap: 10px 15px !important; padding: 5px 15px !important; }
